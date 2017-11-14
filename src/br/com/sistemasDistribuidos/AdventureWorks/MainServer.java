@@ -1,4 +1,4 @@
-package br.com.sistemasDistribuidos.ContosoMobile;
+package br.com.sistemasDistribuidos.AdventureWorks;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -12,13 +12,16 @@ public class MainServer {
 	public static void main(String[] args) {
 
 		try {
-			LocateRegistry.createRegistry(2100);
-			Naming.rebind("rmi://localhost/cm", new ContosoMobile());
+
+			LocateRegistry.createRegistry(2090);
+			Naming.rebind("rmi://localhost/aw", new AdventureWorks());
 
 			JOptionPane.showMessageDialog(null, "Servidor rodando");
 		} catch (RemoteException | MalformedURLException e) {
+
 			JOptionPane.showMessageDialog(null, "(Erro no registro da aplicação) " + e.toString());
 		}
+
 	}
 
 }

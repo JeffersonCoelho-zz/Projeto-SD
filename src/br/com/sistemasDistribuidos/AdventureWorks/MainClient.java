@@ -1,4 +1,4 @@
-package br.com.sistemasDistribuidos.DuwamishDelivery;
+package br.com.sistemasDistribuidos.AdventureWorks;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -13,7 +13,9 @@ public class MainClient {
 
 		try {
 
-			IDuwamishDelivery duwamishDelivery = (IDuwamishDelivery) Naming.lookup("rmi://localhost/dd");
+			IAdventureWorks adventureWorks = (IAdventureWorks) Naming.lookup("rmi://localhost/aw");
+			GUITabelas tabelas = new GUITabelas(adventureWorks);
+			tabelas.show();
 
 		} catch (RemoteException e) {
 			JOptionPane.showMessageDialog(null, "(Erro no registro da aplicação) " + e.toString());
@@ -24,5 +26,4 @@ public class MainClient {
 		}
 
 	}
-
 }

@@ -7,18 +7,13 @@ import java.rmi.RemoteException;
 
 import javax.swing.JOptionPane;
 
-/**
- * @author Jefferson Coelho
- */
 public class MainClient {
 
 	public static void main(String[] args) {
 		try {
 
 			IContosoMobile notify = (IContosoMobile) Naming.lookup("rmi://localhost/cm");
-
 			String fone = JOptionPane.showInputDialog("Digite o celular para enviar a requisição:");
-
 			notify.setStartRequisition(fone);
 
 		} catch (RemoteException e) {
